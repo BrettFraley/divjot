@@ -24,6 +24,7 @@
         css: document.getElementById('css-button'),
         js: document.getElementById('js-button'),
         run: document.getElementById('run-button'),
+        export: document.getElementById('export-button'),
         closed: false,    // flag for open/close all editors
         fsize: 10
     };    
@@ -54,6 +55,13 @@
 
     function js_out() {
         return eval(divjot_js.value);
+    }
+
+    function exportOut() {
+        const content = `${divjot_html.value} <style> ${divjot_css.value} </style> <script> ${divjot_js.value} </script>`
+        let win = window.open('', '_blank')
+        win.document.open('divjot-save.html')
+        win.document.write(content)
     }
 
     // Open or close all editors at once (for hotkeys)
@@ -185,6 +193,8 @@
     controls.js.addEventListener('click', function() { toggle(divjot_js); }, false); 
 
     controls.run.addEventListener('click', function() { js_out(); }, false);
+
+    controls.export.addEventListener('click', function() { exportOut(); }, false)
 
     /* Menu UI event listeners */
 
