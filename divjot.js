@@ -58,10 +58,15 @@
     }
 
     function exportOut() {
-        const content = `${divjot_html.value} <style> ${divjot_css.value} </style> <script> ${divjot_js.value} </script>`
+        const content = `${divjot_html.value} <style> ${divjot_css.value}
+                        </style> <script> ${divjot_js.value} </script>`
+        const raw = `<h1>HTML</h1><hr> <code>${divjot_html.value}</code>
+                     <h1>CSS</h1><hr>  <code>${divjot_css.value}</code>
+                     <h1>JS</h1><hr>   <code>${divjot_js.value}</code>`
+
         let win = window.open('', '_blank')
         win.document.open('divjot-save.html')
-        win.document.write(content)
+        win.document.write(content + raw)
     }
 
     // Open or close all editors at once (for hotkeys)
