@@ -116,8 +116,14 @@ body {
 /* UI controls. */
 
 .divjot-controls {
-  text-align: center; /* All that's needed for now until it holds more elements. */
+  text-align: center;
+  border-radius: 5px;
+  border: solid 1px #eee;
+  padding: 10px;
+  padding-top: 14px;
+  margin-bottom: 12px;
 }
+
 
 #opacity-control {
   width: 100px;
