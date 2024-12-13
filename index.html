@@ -4,7 +4,7 @@
   <title>divjot</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="divjot.css">
-  <script defer src="divjot.js"></script>    
+  <script defer src="divjot.js"></script>
 </head>
 
 <body>
@@ -17,36 +17,36 @@
       <input id="user-fileinput" type="file"
         title="Load HTML or other files from your computer into the HTML editor.">
       </input>
-      
-      <label>Import</label>   
+
+      <label>Import</label>
       <input id="import-fileinput" type="text"
         title="Import JS &amp; CSS file resources. Links are appended to the document <head>">
       </input>
       <button id="import-button"> + </button>
     </section>
 
-    <section class="editor-section">           
-      <textarea class="divjot-editors" id="divjot-html" placeholder=" HTML "></textarea>        
+    <section class="editor-section">
+      <textarea class="divjot-editors" id="divjot-html" placeholder=" HTML "></textarea>
       <textarea class="divjot-editors" id="divjot-css" placeholder=" CSS "></textarea>
       <textarea class="divjot-editors" id="divjot-js" placeholder=" JS "></textarea>
     </section>
 
     <div class="divjot-controls">
       <input id="opacity-control" type ="range" min="0.1" max="1" step="0.1" ></input>
-      <button class="control-buttons" id="dark-button"> dark </button>
-      <button class="control-buttons" id="light-button">light</button>
-      <button class="control-buttons" id="fsize-smaller-button"> - </button>
-      <button class="control-buttons" id="fsize-bigger-button"> + </button>     
-      <button class="control-buttons" id="html-button"> html </button>
-      <button class="control-buttons" id="css-button"> css </button>
-      <button class="control-buttons" id="js-button"> js </button>
-      <button class="control-buttons" id="run-button">run</button>
-      <button class="control-buttons" id="export-button">export</button>
+      <button class="sm-control-buttons" id="dark-button"> dark </button>
+      <button class="sm-control-buttons" id="light-button">light</button>
+      <button class="sm-control-buttons" id="fsize-smaller-button"> - </button>
+      <button class="sm-control-buttons" id="fsize-bigger-button"> + </button>
+      <button class="sm-control-buttons" id="html-button"> html </button>
+      <button class="sm-control-buttons" id="css-button"> css </button>
+      <button class="sm-control-buttons" id="js-button"> js </button>
+      <button class="md-control-buttons" id="run-button">run</button>
+      <button class="md-control-buttons" id="export-button">export</button>
     </div>
 
-  </div>  <!-- end div id: divjot-wrapper -->   
-  
-  <!-- This is where users' css is sent --> 
+  </div>  <!-- end div id: divjot-wrapper -->
+
+  <!-- This is where users' css is sent -->
   <style id = "divjot-style"></style>
 </body>
 </html>

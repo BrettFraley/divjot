@@ -1,166 +1,167 @@
 /* Copyright by Brett Fraley 2016 */
 
 html {
-  font-size:100%;
-  height:100%;
-  margin:0;
-  padding:0; 
+  font-size: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 body {
-  width:100%;
-  height:100%;
-  margin:0;
-  padding:0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* The divjot UI container. */
 #divjot-wrapper {
-  min-width:440px;
-  max-width:98%;
-  max-height:98%;
-  position:fixed;
-  left:15px;
-  bottom:15px;
-  padding:9px;
-  z-index:1;
-  overflow:auto;
-  opacity:0.9;
-  white-space:nowrap;
-  text-align:center;
-  font-family:monospace;
-  font-size:1em;
-  background-color:#fff;
-  color:#222;
-  border:solid 1px #ccc;
-  border-bottom:solid 1px #000;
-  border-radius:7px;
+  min-width: 440px;
+  max-width: 98%;
+  max-height: 98%;
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+  padding: 9px;
+  z-index: 1;
+  overflow: auto;
+  opacity: 0.9;
+  white-space: nowrap;
+  text-align: center;
+  font-family: monospace;
+  font-size: 1em;
+  background-color: #fff;
+  color: #222;
+  border: solid 1px #ccc;
+  border-bottom: solid 1px #000;
+  border-radius: 7px;
 }
 
 .top-ui-section {
-  width:98%;
+  width: 98%;
   margin:0px auto;
   text-align:left;
 }
 
 .top-ui-section input {
-  border:solid 1px #999;
-  border-radius:25px;
-  color:#333;
-  display:inline-block;
-  padding:5px;
-  margin:0px 15px;  
+  border: solid 1px #999;
+  border-radius: 25px;
+  color: #333;
+  display: inline-block;
+  padding: 5px;
+  margin: 0px 15px;
 }
 
 #divjot-menu {
-  width:100%;
-  height:20px;
-  padding:5px;
-  border:solid 1px;
+  width: 100%;
+  height: 20px;
+  padding: 5px;
+  border: solid 1px;
   color: #333;
-  list-style:none;
+  list-style: none;
 }
 
 #divjot-menu ul li {
-  display:inline-block;
+  display: inline-block;
 }
 
 /* Each of the editor textareas. */
 .divjot-editors {
-  min-width:250px;
-  min-height:250px;
-  max-height:75%;
-  max-width:700px;
-  padding:3px;
-  display:inline-block;
-  overflow:auto;
-  opacity:0.8;  
-  border-radius:7px;
-  border:solid 1px #ccc;
-  font-size:10pt;
-  letter-spacing:0.05em;  
+  min-width: 250px;
+  min-height: 250px;
+  max-height: 75%;
+  max-width: 700px;
+  padding: 3px;
+  display: inline-block;
+  overflow: auto;
+  opacity: 0.8;
+  border-radius: 7px;
+  border: solid 1px #ccc;
+  font-size: 10pt;
+  letter-spacing: 0.05em;
 }
 
 /* Eliminate default input focus outline. */
-
-.top-ui-section input:focus, .divjot-editors:focus, .control-buttons:focus {
+.top-ui-section input:focus,
+.divjot-editors:focus,
+.control-buttons:focus {
   outline: none !important;
-  border:solid 1px #008fcc;  
+  border: solid 1px #008fcc;
 }
 
-#divjot-html {  
+/* #divjot-html {
 
-}
+} */
 
-#divjot-css {  
-  background-color:#EEE;  
-  max-width:520px;  
+#divjot-css {
+  background-color: #EEE;
+  max-width: 520px;
 }
 
 #divjot-js {
-  font-family:monospace;
-  font-weight:500;
-  background-color:#555;  
-  color:#FFF;
+  font-family: monospace;
+  font-weight: 500;
+  background-color: #555;
+  color: #FFF;
 }
 
 /* A section element, parent to all editor textareas. */
 .editor-section {
-  margin:5px auto;
-  width:98%;    
-  overflow:auto;
-  padding:9px;
-  border-radius:7px;
+  margin: 5px auto;
+  width: 98%;
+  overflow: auto;
+  padding: 9px;
+  border-radius: 7px;
 }
 
 /* UI controls. */
 
 .divjot-controls {
-  text-align:center; /* All that's needed for now until it holds more elements. */
+  text-align: center; /* All that's needed for now until it holds more elements. */
 }
 
 #opacity-control {
-  width:100px;
-  background-color:#ddd;
-  color:#000;  
-  padding:3px;
-  border-radius:3px;
-  height:7px;
-  border:solid 1px #ddd;
+  width: 100px;
+  background-color: #ddd;
+  color: #000;
+  padding: 3px;
+  border-radius: 3px;
+  height: 7px;
+  border: solid 1px #ddd;
 }
 
-.control-buttons {
-  width:40px;
-  padding:3px;
-  border:solid 1px;
-  opacity:0.8;
-  border-radius:3px;
-  border:solid 1px #ddd;
-  margin-bottom:5px;
-  letter-spacing:0.06em;
-  font-weight:700;
+.sm-control-buttons {
+  width: 40px;
+  padding: 3px;
+  border: solid 1px;
+  opacity: 0.8;
+  border-radius: 3px;
+  border: solid 1px #ddd;
+  margin-bottom: 5px;
+  letter-spacing: 0.06em;
+  font-weight: 700;
 }
 
 .control-buttons:hover {
-  opacity:1;
-  background-color:#EEE;
+  opacity: 1;
+  background-color: #EEE;
 }
 
 #dark-button {
-  background-color:#333;
-  color:#FFF;
+  background-color: #333;
+  color: #FFF;
 }
 
 #light-button {
-  background-color:#FFF;
-  color:#000;
-  display:none;
+  background-color: #FFF;
+  color: #000;
+  display: none;
 }
 
-#run-button {
-  margin-left:25px;
-  width:80px;
-  padding:5px;
-  font-weight:500;
-  letter-spacing:0.2em;
+.md-control-buttons {
+  margin-left: 25px;
+  width: 80px;
+  padding: 5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
 }
 

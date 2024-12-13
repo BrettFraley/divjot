@@ -1,0 +1,13 @@
+NW.js Dev Notes & Todo:
+
+- Initially refactor, make nice..without functional changes
+- Get build, installer, distribution tooling setup
+- Testing.. minimal unit (the nw.js Python way), and integration
+            using webdriver (the nw.js way)..
+- Local file save / project export
+- SQLlite user data / persistence 
+- Traditional Desktop UI menu
+- Tooling, library, framework, imports / integrations
+- I want two modes.. minimal plain Divjot, and then all the bells
+  and whistles as I need them.
+

@@ -1,4 +1,8 @@
 {
   "name": "divjot",
-  "main": "index.html"
+  "main": "index.html",
+  "scripts": {
+      "dev": "~/nwjs-sdk/nwjs-sdk-v0.93.0-linux-x64/nw ."
+  }
+  
 }
