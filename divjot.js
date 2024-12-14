@@ -4,8 +4,13 @@
 
 (function() {
 
-    const config = {
+    const UI = {
         devMode: true,
+        darkMode: false,
+        colorModes: {
+            dark: { bg: "#333", fg: "#fff" },
+            light: { bg: "#fff", fg: "#333" }
+        }
     }
 
     let divjot_wrapper = document.getElementById('divjot-wrapper');
@@ -22,8 +27,7 @@
         opacity:  document.getElementById('opacity-control'),
         fsmaller: document.getElementById('fsize-smaller-button'),
         fbigger: document.getElementById('fsize-bigger-button'),
-        dark: document.getElementById('dark-button'),
-        light: document.getElementById('light-button'),
+        toggleLightDarkButton: document.getElementById('toggle-light-dark-button'),
         html: document.getElementById('html-button'),
         css: document.getElementById('css-button'),
         js: document.getElementById('js-button'),
@@ -87,39 +91,24 @@
         el.style.display = showing ? "none" : "inline-block";
     }
 
-    // Decrease editors' font-size.
-    function font_smaller() {
-        controls.fsize -= 2;
-        divjot_html.style.fontSize = controls.fsize + "pt";
-        divjot_css.style.fontSize = controls.fsize + "pt";
-        divjot_js.style.fontSize = controls.fsize + "pt";
-    }
-
-    // Increase editors' font-size.
-    function font_bigger() {
-        controls.fsize += 2;
+    // Editor font size
+    function incDecFontSize(buttonId) {
+        const amt = buttonId === 'fsize-smaller-button' ? -2 : 2
+        controls.fsize += amt
         divjot_html.style.fontSize = controls.fsize + "pt";
         divjot_css.style.fontSize = controls.fsize + "pt";
         divjot_js.style.fontSize = controls.fsize + "pt";
     }
 
     // Switch to dark UI colors.
-    function dark() {
-        if (config.devMode) {
-            document.body.style.backgroundColor = "#333";
-        }
-        divjot_wrapper.style.backgroundColor = "#333";
-        menu.top_ui_section.style.color = "#eee";
-        controls.dark.style.display = "none";
-        controls.light.style.display = "inline";
-    }
+    function toggleLightDarkMode() {
+        const switchedColors = UI.darkMode ? UI.colorModes.light : UI.colorModes.dark
+        controls.toggleLightDarkButton.innerText = UI.darkMode ? " dark " : " light "
 
-    // Switch to light UI colors.
-    function light() {
-        divjot_wrapper.style.backgroundColor = "#FFF";
-        menu.top_ui_section.style.color = "#333";
-        controls.light.style.display = "none";
-        controls.dark.style.display = "inline";
+        divjot_wrapper.style.backgroundColor = switchedColors.bg
+        menu.top_ui_section.style.color = switchedColors.fg
+
+        UI.darkMode = !UI.darkMode
     }
 
     // Append new JS or CSS file resource to <head>.
@@ -180,13 +169,11 @@
     controls.opacity.addEventListener('input', function() {
         divjot_wrapper.style.opacity = controls.opacity.value; }, false);
 
-    controls.fsmaller.addEventListener('click', font_smaller, false);
 
-    controls.fbigger.addEventListener('click', font_bigger, false);
+    controls.fsmaller.addEventListener('click', e => incDecFontSize(e.target.id), false);
+    controls.fbigger.addEventListener('click', e => incDecFontSize(e.target.id), false);
 
-    controls.dark.addEventListener('click', dark, false);
-
-    controls.light.addEventListener('click', light, false);
+    controls.toggleLightDarkButton.addEventListener('click', toggleLightDarkMode, false);
 
     controls.html.addEventListener('click', () => toggle(divjot_html), false)
 
