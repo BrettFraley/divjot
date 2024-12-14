@@ -4,6 +4,10 @@
 
 (function() {
 
+    const config = {
+        devMode: true,
+    }
+
     let divjot_wrapper = document.getElementById('divjot-wrapper');
 
     // Editor textarea elements
@@ -41,31 +45,23 @@
         imported_list: []
     };
 
-
-    /* Functions */
-
     // Send user source to DOM.
-    function markup_out() {
-        usermarkup.innerHTML = divjot_html.value;
-    }
+    const outputs = {
+        markup_out: () => usermarkup.innerHTML = divjot_html.value,
+        style_out: () => userstyle.innerHTML = divjot_css.value,
+        js_out: () => eval(divjot_js.value),
 
-    function style_out() {
-        userstyle.innerHTML = divjot_css.value;
-    }
+        exportOut: () => {
+            const content = `${divjot_html.value} <style> ${divjot_css.value}</style> <script> ${divjot_js.value} </script>`
 
-    function js_out() {
-        return eval(divjot_js.value);
-    }
+            const raw = `<h1>HTML</h1><hr> <pre><code>${divjot_html.value}</code></pre>
+                         <h1>CSS</h1><hr>  <pre><code>${divjot_css.value}</code></pre>
+                         <h1>JS</h1><hr>   <pre><code>${divjot_js.value}</code></pre>`
 
-    function exportOut() {
-        const content = `${divjot_html.value} <style> ${divjot_css.value}</style> <script> ${divjot_js.value} </script>`
-        const raw = `<h1>HTML</h1><hr> <code>${divjot_html.value}</code>
-                     <h1>CSS</h1><hr>  <code>${divjot_css.value}</code>
-                     <h1>JS</h1><hr>   <code>${divjot_js.value}</code>`
-
-        let win = window.open('', '_blank')
-        win.document.open('divjot-save.html')
-        win.document.write(content + raw)
+            const win = window.open('', '_blank')
+            win.document.open('divjot-save.html')
+            win.document.write(content + raw)
+        }
     }
 
     // Open or close all editors at once (for hotkeys)
@@ -109,6 +105,9 @@
 
     // Switch to dark UI colors.
     function dark() {
+        if (config.devMode) {
+            document.body.style.backgroundColor = "#333";
+        }
         divjot_wrapper.style.backgroundColor = "#333";
         menu.top_ui_section.style.color = "#eee";
         controls.dark.style.display = "none";
@@ -172,9 +171,9 @@
 
     /* User code I/O event triggers. */
 
-    divjot_html.addEventListener('keyup' || 'keypress', markup_out, false);
+    divjot_html.addEventListener('keyup' || 'keypress', outputs.markup_out, false);
 
-    divjot_css.addEventListener('keyup' || 'keypress', style_out, false);
+    divjot_css.addEventListener('keyup' || 'keypress', outputs.style_out, false);
 
     /* UI Control button event listeners */
 
@@ -189,15 +188,15 @@
 
     controls.light.addEventListener('click', light, false);
 
-    controls.html.addEventListener('click', function() { toggle(divjot_html); }, false);
+    controls.html.addEventListener('click', () => toggle(divjot_html), false)
 
-    controls.css.addEventListener('click', function() { toggle(divjot_css); }, false);
+    controls.css.addEventListener('click', () => toggle(divjot_css), false)
 
-    controls.js.addEventListener('click', function() { toggle(divjot_js); }, false);
+    controls.js.addEventListener('click', () => toggle(divjot_js), false)
 
-    controls.run.addEventListener('click', function() { js_out(); }, false);
+    controls.run.addEventListener('click', () => outputs.js_out(), false)
 
-    controls.export.addEventListener('click', function() { exportOut(); }, false)
+    controls.export.addEventListener('click', () => outputs.exportOut(), false)
 
     /* Menu UI event listeners */
 
@@ -209,7 +208,7 @@
         get_user_file(this.files[0], function(e) {
             divjot_html.userfile = e.target.result;
             divjot_html.value += divjot_html.userfile;
-            markup_out();
+            outputs.markup_out();
         });
     });
 
